@@ -9,5 +9,12 @@ export default Ember.Route.extend({
 		}
 
 		return Ember.RSVP.reject('404 error, this should not be visible to user');
+	},
+
+	actions: {
+		error(model) {
+			this.intermediateTransitionTo('article_error', model);
+			return false;
+		}
 	}
 });
